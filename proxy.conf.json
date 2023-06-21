@@ -1,0 +1,11 @@
+{
+  "/api/clients": {
+    "target": "http://localhost:8080/cliente",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/clients": ""
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<div class="d-flex flex-column align-items-center p-4">
+  <div class="d-flex justify-content-start w-50 py-1">
+    <a
+      routerLink="/"
+      class="btn btn-light"
+    >
+      Regresar
+    </a>
+  </div>
+  <div class="card bg-light w-50">
+    <div class="card-header">
+      {{ client ? 'Actualizar' : 'Crear' }} Cliente
+    </div>
+    <div class="card-body">
+      <form
+        [formGroup]="clientForm"
+        (ngSubmit)="submit()"
+      >
+        <div class="mb-3">
+          <label class="form-label">Nombres</label>
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="clientForm.get('nombres')?.invalid && (clientForm.get('nombres')?.dirty || clientForm.get('nombres')?.touched)"
+            autocomplete="off"
+            formControlName="nombres"
+          >
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Apellidos</label>
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="clientForm.get('apellidos')?.invalid && (clientForm.get('apellidos')?.dirty || clientForm.get('apellidos')?.touched)"
+            autocomplete="off"
+            formControlName="apellidos"
+          >
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Documento</label>
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="clientForm.get('documento')?.invalid && (clientForm.get('documento')?.dirty || clientForm.get('documento')?.touched)"
+            autocomplete="off"
+            formControlName="documento"
+            numbersOnly
+          >
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            [class.is-invalid]="clientForm.get('email')?.invalid && (clientForm.get('email')?.dirty || clientForm.get('email')?.touched)"
+            autocomplete="off"
+            formControlName="email"
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          {{ client ? 'Actualizar' : 'Guardar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
